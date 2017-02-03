@@ -1,0 +1,14 @@
+server:  
+  port: ${PORT:3333}
+
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+          
+ribbon:
+  eureka:
+    enabled: true
