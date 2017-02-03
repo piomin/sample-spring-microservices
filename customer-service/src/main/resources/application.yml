@@ -4,7 +4,7 @@ server:
 eureka:  
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+      defaultZone: ${vcap.services.discovery-service.credentials.uri:http://127.0.0.1:8761}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2

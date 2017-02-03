@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +16,6 @@ import pl.piomin.microservices.customer.model.CustomerType;
 
 @RestController
 public class Api {
-
-	@Autowired
-	RabbitTemplate template;
 	
 	@Autowired
 	private AccountClient accountClient;
@@ -55,13 +51,6 @@ public class Api {
 		List<Account> accounts =  accountClient.getAccounts(id);
 		customer.setAccounts(accounts);
 		return customer;
-	}
-	
-	@RequestMapping("/customers/add/{id}/{pesel}")
-	public Customer addCustomer(@PathVariable("id") Integer id, @PathVariable("pesel") String pesel) {
-		logger.info(String.format("Customer.add(%d, %s)", id, pesel));
-		template.convertAndSend(id + "-" + pesel);
-		return new Customer(id, pesel, "Test Test", CustomerType.INDIVIDUAL);
 	}
 	
 }
