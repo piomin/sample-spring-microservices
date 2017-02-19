@@ -24,6 +24,7 @@
 		<module>gateway-service</module>
 		<module>customer-service</module>
 		<module>zipkin-service</module>
+		<module>authentication-service</module>
 	</modules>
 
 </project>

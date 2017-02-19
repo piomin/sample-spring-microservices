@@ -11,6 +11,12 @@ spring:
       org.springframework: WARN
       org.hibernate: WARN
 
+security:
+  oauth2:
+    resource:
+      loadBalanced: true
+      userInfoUri: http://authentication-service/uaa/user
+      
 eureka:  
   client:
     serviceUrl:
