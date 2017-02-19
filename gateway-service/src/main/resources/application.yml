@@ -41,12 +41,12 @@ security:
 #   sso:
 #     loginPath: 
     
-#proxy:
-#  auth:
-#    routes:
-#      account: oauth2
-#      customer: oauth2
-#      auth: passthru
+proxy:
+  auth:
+    routes:
+      account: oauth2
+      customer: oauth2
+      auth: passthru
       
 ribbon:
   eureka:
