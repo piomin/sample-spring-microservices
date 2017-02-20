@@ -19,9 +19,9 @@ zuul:
     customer: 
       path: /customer/**
       serviceId: customer-service
-    auth:
+    uaa:
       path: /uaa/**
-#      serviceId: authentication-service
+      serviceId: authentication-service
       sensitiveHeaders: 
       stripPrefix: false          
   add-proxy-headers: true
