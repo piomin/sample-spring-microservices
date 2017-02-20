@@ -6,18 +6,28 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<parent>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>Brixton.RELEASE</version>
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version>
+    </parent>
 
 	<properties>
-		<spring.boot>1.4.2.RELEASE</spring.boot>
-		<spring.boot.eureka>1.2.2.RELEASE</spring.boot.eureka>
 		<java.version>1.8</java.version>
 	</properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Camden.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
 	<modules>
 		<module>discovery-service</module>
 		<module>account-service</module>

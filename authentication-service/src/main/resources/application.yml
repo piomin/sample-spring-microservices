@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: authentication-service
+
+# Define the port where the UAA server would be running
+server:
+  port: 9999
+  # Use different context-path to avoid session cookie overlapping
+  context-path: /uaa
+  use-forward-headers: false
+
+# Define the Eureka server that handles service registration
+eureka:
+  instance:
+      hostname: localhost
+      port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+# Define security
+security:
+  basic:
+    enabled: false
+  user:
+    password: password
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+
+logging:
+  level.org.springframework.security: DEBUG
