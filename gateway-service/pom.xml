@@ -40,6 +40,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>gateway-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
