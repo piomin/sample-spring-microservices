@@ -1,0 +1,13 @@
+server:  
+  port: ${PORT:8888}
+
+spring:  
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/habuma/private-config-repo
+          username: habuma
+          password: s3cr3t
