@@ -1,6 +1,14 @@
 server:  
   port: ${PORT:3333}
 
+spring:
+  data:
+  mongodb:
+    host: localhost
+    port: 27017
+    username: micro 
+    password: micro
+      
 eureka:  
   client:
     serviceUrl:
