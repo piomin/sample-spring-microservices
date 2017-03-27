@@ -1,34 +1,39 @@
 package pl.piomin.microservices.account.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "account")
 public class Account {
 
-	private Integer id;
-	private Integer customerId;
+	@Id
+	private String id;
+	private String customerId;
 	private String number;
 
 	public Account() {
 
 	}
 
-	public Account(Integer id, Integer customerId, String number) {
+	public Account(String id, String customerId, String number) {
 		this.id = id;
 		this.customerId = customerId;
 		this.number = number;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(Integer customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 

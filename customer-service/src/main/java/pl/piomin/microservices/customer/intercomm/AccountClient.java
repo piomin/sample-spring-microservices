@@ -13,6 +13,6 @@ import pl.piomin.microservices.customer.model.Account;
 public interface AccountClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/accounts/customer/{customerId}")
-    List<Account> getAccounts(@PathVariable("customerId") Integer customerId);
+    List<Account> getAccounts(@PathVariable("customerId") String customerId);
     
 }
