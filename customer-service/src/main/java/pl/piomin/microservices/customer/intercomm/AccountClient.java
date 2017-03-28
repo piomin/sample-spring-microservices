@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.piomin.microservices.customer.model.Account;
 
-@FeignClient("account-service")
+@FeignClient(name = "account-service", url = "http://account-service:2222")
 public interface AccountClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/accounts/customer/{customerId}")
-    List<Account> getAccounts(@PathVariable("customerId") String customerId);
-    
+	@RequestMapping(method = RequestMethod.GET, value = "/accounts/customer/{customerId}")
+	List<Account> getAccounts(@PathVariable("customerId") String customerId);
+
 }

@@ -9,14 +9,14 @@ spring:
     username: micro 
     password: micro
       
-eureka:  
-  client:
-    serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://discovery:8761}/eureka/
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+#eureka:  
+#  client:
+#    serviceUrl:
+#      defaultZone: ${DISCOVERY_URL:http://discovery:8761}/eureka/
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
           
 ribbon:
   eureka:
-    enabled: true
+    enabled: false
