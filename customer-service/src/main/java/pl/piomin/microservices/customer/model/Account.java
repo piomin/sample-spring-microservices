@@ -2,24 +2,24 @@ package pl.piomin.microservices.customer.model;
 
 public class Account {
 
-	private Integer id;
+	private String id;
 	private String number;
 
 	public Account() {
 		
 	}
 
-	public Account(Integer id, String number) {
+	public Account(String id, String number) {
 		super();
 		this.id = id;
 		this.number = number;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
