@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: micro.all
+    http:
+      paths:
+      - path: /account
+        backend:
+          serviceName: account-service
+          servicePort: 2222
+      - path: /customer
+        backend:
+          serviceName: customer-service
+          servicePort: 3333

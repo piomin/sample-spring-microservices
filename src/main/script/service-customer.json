@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: customer-service
+spec:
+  selector:
+    run: customer-service
+  ports:
+    - name: port1
+      protocol: TCP
+      port: 3333
+      targetPort: 3333
+    - name: port2
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+  type: NodePort

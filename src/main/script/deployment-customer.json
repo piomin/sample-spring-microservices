@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: customer-service
+  labels:
+    run: customer-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: customer-service
+    spec:
+      containers:
+      - name: customer-service
+        image: piomin/customer-service:1.1
+        ports:
+        - containerPort: 3333
+          protocol: TCP
+      - name: mongo
+        image: library/mongo
+        ports:
+        - containerPort: 27017
+          protocol: TCP
