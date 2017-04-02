@@ -2,8 +2,9 @@ package pl.piomin.microservices.customer.api;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class Api {
 	@Autowired
 	private AccountClient accountClient;
 	
-	protected Logger logger = Logger.getLogger(Api.class.getName());
+	protected static Logger logger = LoggerFactory.getLogger(Api.class.getName());
 	
 	private List<Customer> customers;
 	
@@ -35,12 +36,15 @@ public class Api {
 	@RequestMapping("/customers/pesel/{pesel}")
 	public Customer findByPesel(@PathVariable("pesel") String pesel) {
 		logger.info(String.format("Customer.findByPesel(%s)", pesel));
-		return customers.stream().filter(it -> it.getPesel().equals(pesel)).findFirst().get();	
+		Customer c = customers.stream().filter(it -> it.getPesel().equals(pesel)).findFirst().get();
+		logger.info(String.format("Customer.findByPesel: %s", c));
+		return c;
 	}
 	
 	@RequestMapping("/customers")
 	public List<Customer> findAll() {
 		logger.info("Customer.findAll()");
+		logger.info(String.format("Customer.findAll: %s", customers));
 		return customers;
 	}
 	
@@ -50,6 +54,7 @@ public class Api {
 		Customer customer = customers.stream().filter(it -> it.getId().intValue()==id.intValue()).findFirst().get();
 		List<Account> accounts =  accountClient.getAccounts(id);
 		customer.setAccounts(accounts);
+		logger.info(String.format("Customer.findById: %s", customer));
 		return customer;
 	}
 	

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread, %X{X-B3-TraceId:-},%X{X-B3-SpanId:-}] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STASH"
+		class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+		<destination>192.168.99.100:5000</destination>
+
+		<encoder
+			class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+			<providers>
+				<mdc /> <!-- MDC variables on the Thread will be written as JSON fields -->
+				<context /> <!--Outputs entries from logback's context -->
+				<version /> <!-- Logstash json format version, the @version field in the output -->
+				<logLevel />
+				<loggerName />
+
+				<pattern>
+					<pattern>
+						{
+						"serviceName": "customer-service"
+						}
+					</pattern>
+				</pattern>
+
+				<threadName />
+				<message />
+
+				<logstashMarkers />
+				<arguments />
+
+				<stackTrace />
+			</providers>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="STASH" />
+	</root>
+</configuration>

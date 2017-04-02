@@ -39,5 +39,10 @@ public class Account {
 	public void setNumber(String number) {
 		this.number = number;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Account [id=%d, number='%s', customerId=%d]", id, number, customerId);
+	}
 
 }

@@ -61,4 +61,9 @@ public class Customer {
 		this.accounts = accounts;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Customer [id=%d, pesel='%s', name='%s']", id, pesel, name);
+	}
+	
 }
