@@ -30,11 +30,8 @@
 
 				<threadName />
 				<message />
-
 				<logstashMarkers />
-<!-- 				<arguments /> -->
-
-<!-- 				<stackTrace /> -->
+				<stackTrace />
 			</providers>
 		</encoder>
 	</appender>
