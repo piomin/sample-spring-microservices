@@ -1,28 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>pl.piomin</groupId>
-		<artifactId>sample-spring-microservices</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
+
+	<groupId>pl.piomin</groupId>
+	<version>1.0-SNAPSHOT</version>
 	<artifactId>zipkin-service</artifactId>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.4.RELEASE</version>
+		<relativePath />
+	</parent>
+
 	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-starter-eureka</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>io.zipkin.java</groupId>
 			<artifactId>zipkin-server</artifactId>
-			<version>1.16.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.zipkin.java</groupId>
-			<artifactId>zipkin</artifactId>
-			<version>1.16.2</version>
+			<version>1.18.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.zipkin.java</groupId>
 			<artifactId>zipkin-autoconfigure-ui</artifactId>
-			<version>1.16.2</version>
+			<scope>runtime</scope>
+			<version>1.18.0</version>
 		</dependency>
 	</dependencies>
 
