@@ -21,7 +21,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>1.5.2.RELEASE</version>
 				<configuration>
 					<mainClass>pl.piomin.microservices.eureka.Application</mainClass>
 					<addResources>true</addResources>
