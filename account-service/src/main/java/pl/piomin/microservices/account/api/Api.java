@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,9 @@ import pl.piomin.microservices.account.model.Account;
 @RestController
 public class Api {
 
+	@Value("${PORT}")
+	int port;
+	
 	private List<Account> accounts;
 	
 	protected Logger logger = Logger.getLogger(Api.class.getName());
@@ -38,6 +42,13 @@ public class Api {
 	@RequestMapping("/accounts/customer/{customer}")
 	public List<Account> findByCustomer(@PathVariable("customer") Integer customerId) {
 		logger.info(String.format("Account.findByCustomer(%s)", customerId));
+		if (port%2 == 0) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		return accounts.stream().filter(it -> it.getCustomerId().intValue()==customerId.intValue()).collect(Collectors.toList());
 	}
 	
