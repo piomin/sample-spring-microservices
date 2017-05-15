@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import pl.piomin.microservices.customer.model.Customer;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class ApiTest {
 
 	@Autowired
