@@ -1,0 +1,8 @@
+destination: ratings.default.svc.cluster.local
+route:
+- tags:
+    version: v1
+  httpReqRetries:
+    simpleRetry:
+      attempts: 3
+      perTryTimeout: 2s

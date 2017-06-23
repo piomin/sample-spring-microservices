@@ -2,6 +2,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: gateway-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
 spec:
   backend:
     serviceName: default-http-backend
