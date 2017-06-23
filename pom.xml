@@ -7,14 +7,23 @@
 	<packaging>pom</packaging>
 
 	<parent>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>Brixton.RELEASE</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.2.RELEASE</version>
 	</parent>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
 	<properties>
-		<spring.boot>1.4.2.RELEASE</spring.boot>
-		<spring.boot.eureka>1.2.2.RELEASE</spring.boot.eureka>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -24,6 +33,7 @@
 		<module>gateway-service</module>
 		<module>customer-service</module>
 		<module>zipkin-service</module>
+		<module>admin-service</module>
 	</modules>
 
 </project>

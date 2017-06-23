@@ -1,17 +1,17 @@
 server:  
-  port: ${PORT:3333}
+  port: ${PORT:8080}
+
+spring:  
+  application:
+    name: admin-service
 
 eureka:  
   client:
+    registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
   instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-          
-ribbon:
-  eureka:
-    enabled: true
+    leaseRenewalIntervalInSeconds: 10
     
 management:
   security:
