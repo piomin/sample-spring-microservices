@@ -8,6 +8,7 @@ spring:
 eureka:  
   client:
     registryFetchIntervalSeconds: 5
+    registerWithEureka: false
     serviceUrl:
       defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
   instance:
