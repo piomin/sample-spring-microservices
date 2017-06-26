@@ -1,0 +1,18 @@
+server:  
+  port: ${PORT:8080}
+
+spring:  
+  application:
+    name: cloud-service
+
+eureka:  
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    
+management:
+  security:
+    enabled: false
