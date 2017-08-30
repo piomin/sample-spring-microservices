@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.piomin.microservices.account.model.Account;
@@ -45,6 +46,12 @@ public class Api {
 	public List<Account> findAll() {
 		logger.info("Account.findAll()");
 		return accounts;
+	}
+	
+	@RequestMapping(value = "/accounts", method = RequestMethod.POST)
+	public void add(Account a) {
+		logger.info(String.format("Account.add(%s)", a));
+		accounts.add(a);
 	}
 	
 }
