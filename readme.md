@@ -1,5 +1,5 @@
-## Exposing microservices on REST Protocol Buffers
+## Monitoring Microservices With Spring Boot Admin
 
-Detailed description can be found here: [Exposing Microservices over REST Protocol Buffers](https://piotrminkowski.wordpress.com/2017/06/05/exposing-microservices-over-rest-protocol-buffers/) 
+Detailed description can be found here: [Monitoring Microservices With Spring Boot Admin](https://piotrminkowski.wordpress.com/2017/06/26/monitoring-microservices-with-spring-boot-admin/) 
 
 

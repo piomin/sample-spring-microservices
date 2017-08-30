@@ -36,6 +36,7 @@
 		<module>customer-service</module>
 		<module>zipkin-service</module>
 		<module>admin-service</module>
+		<module>cloud-admin-service</module>
 	</modules>
 
 </project>
