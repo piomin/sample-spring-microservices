@@ -1,9 +1,6 @@
 node {
-        stage ('Final') {
-            steps {
-                echo "hello ${env.WORKSPACE}"
-                sh "ls ${env.WORKSPACE}"
-                build job: "${env.WORKSPACE}/account-service/Jenkinsfile"
-                   }
-        }      
+    stage ('Final') {
+        build job: '../account-service/account-service-pipeline', wait: false
+    }
 }
+
