@@ -1,6 +1,2 @@
-
-node {
-        stage ('Final') {
-            build job: '../customer-service/customer-service-pipeline', wait: false
-        }      
-}
+def pipelineA = load "account-service/Jenkinsfile"
+pipelineA.start()
