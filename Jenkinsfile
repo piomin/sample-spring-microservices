@@ -1,6 +1,6 @@
 node {
     stage ('Final') {
-        build job: '../account-service/account-service-pipeline', wait: false
+        build job: '../account-service-pipeline', wait: false
     }
 }
 
