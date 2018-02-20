@@ -42,7 +42,7 @@ pipeline {
 
 
                             stage('Image') {
-                                dir ('account-service') {
+                                dir ('account-service/') {
                                     def app = docker.build "localhost:5000/account-service:${env.version}"
                                     app.push()
                                 }
