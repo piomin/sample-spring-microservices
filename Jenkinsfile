@@ -29,32 +29,35 @@ pipeline {
                                 isGatewayChanged = true
                             }
                         }
-                        if (isAccountChanged == true) {
-                            echo "** Entities changed ***"
-                            stage('Checkout') {
-                                git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
-                            }
-
-
-                            stage('Checkout') {
-                                git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
-                            }
-
-
-
-                            stage ('Run') {
-                                echo "** RUN ***"
-                            }
-
-
-
-
-                        }
-                        if (isCustomerChanged == true) {
-                            echo "** scheduler changed ***"
-                        }
-                    }
+ 
                 }
+            }
+        }
+    }
+         stage('Check account') {               
+             if (isAccountChanged == true) {
+                echo "** Entities changed ***"
+                stage('Checkout') {
+                    git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
+                }
+
+
+                stage('Checkout') {
+                    git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
+                }
+
+
+
+                stage ('Run') {
+                    echo "** RUN ***"
+                }
+
+
+
+
+            }
+            if (isCustomerChanged == true) {
+                echo "** scheduler changed ***"
             }
         }
     }
