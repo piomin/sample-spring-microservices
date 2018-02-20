@@ -33,7 +33,7 @@ pipeline {
                             echo "** Entities changed ***"
                             def jenkinsFile
                             stage('Loading Jenkins file') {
-                                jenkinsFile = fileLoader.fromGit('testjenkinsstuff/cicd/testMyPipeline', 'https://github.myorg.com/user/testjenkinsstuff.git', 'master', null, '')
+                                jenkinsFile = fileLoader.fromGit('sample-spring-microservices/account-service/', 'https://github.com/saiida1/sample-spring-microservices.git', 'master', null, '')
                             }
 
                             jenkinsFile.start()
