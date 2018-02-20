@@ -2,9 +2,6 @@
 pipeline {
     agent any
     stages {     
-        stage('Checkout') {
-            git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
-        }
         stage('Check for CHANGELOG update') {
             when { expression { env.BRANCH_NAME != 'master' } }
             steps {
@@ -34,7 +31,9 @@ pipeline {
                         }
                         if (isAccountChanged == true) {
                             echo "** Entities changed ***"
-
+                            stage('Checkout') {
+                                git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
+                            }
 
 
                             stage('Checkout') {
