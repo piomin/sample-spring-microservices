@@ -31,10 +31,15 @@ pipeline {
                         }
                         if (isAccountChanged == true) {
                             echo "** Entities changed ***"
-                            
+                            def jenkinsFile
+                            stage('Loading Jenkins file') {
+                                jenkinsFile = fileLoader.fromGit('testjenkinsstuff/cicd/testMyPipeline', 'https://github.myorg.com/user/testjenkinsstuff.git', 'master', null, '')
+                            }
+
+                            jenkinsFile.start()
 
                             stage ('Run') {
-                                docker.image("localhost:5000/account-service:${env.version}").run('-p 2222:2222 -h account --name account --link discovery')
+                                echo "**RUN ***"
                             }
 
 
