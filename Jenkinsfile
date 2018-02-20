@@ -33,7 +33,7 @@ pipeline {
                             echo "** Entities changed ***"
                             node {
 
-                                withMaven(maven:'maven') {
+
 
                                     stage('Checkout') {
                                         git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
@@ -62,7 +62,7 @@ pipeline {
                                         build job: 'customer-service-pipeline', wait: false
                                     }      
 
-                                }
+
 
                             }
                         }
