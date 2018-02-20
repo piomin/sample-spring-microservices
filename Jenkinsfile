@@ -29,35 +29,23 @@ pipeline {
                                 isGatewayChanged = true
                             }
                         }
- 
+                        if (isAccountChanged == true) {
+                            echo "** Entities changed ***"
+                            
+
+                            stage ('Run') {
+                                docker.image("localhost:5000/account-service:${env.version}").run('-p 2222:2222 -h account --name account --link discovery')
+                            }
+
+
+
+
+                        }
+                        if (isCustomerChanged == true) {
+                            echo "** scheduler changed ***"
+                        }
+                    }
                 }
-            }
-        }
-    }
-         stage('Check account') {               
-             if (isAccountChanged == true) {
-                echo "** Entities changed ***"
-                stage('Checkout') {
-                    git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
-                }
-
-
-                stage('Checkout') {
-                    git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
-                }
-
-
-
-                stage ('Run') {
-                    echo "** RUN ***"
-                }
-
-
-
-
-            }
-            if (isCustomerChanged == true) {
-                echo "** scheduler changed ***"
             }
         }
     }
