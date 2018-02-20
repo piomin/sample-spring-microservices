@@ -35,7 +35,7 @@ pipeline {
                             def jenkins
                             stage('Loading Jenkins file') {
                        //         jenkins= fileLoader.fromGit('https://github.com/saiida1/sample-spring-microservices.git', 'master', null, '')
-                                jenkinsFile = fileLoader.load('sample-spring-microservices/account-service/')
+                                jenkinsFile = fileLoader.load('sample-spring-microservices/account-service')
                             }
 
                             jenkinsFile.start()
