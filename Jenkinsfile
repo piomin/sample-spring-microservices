@@ -6,10 +6,10 @@ pipeline {
             when { expression { env.BRANCH_NAME != 'master' } }
             steps {
                 script {
-                    sshagent(['97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40']) {
-                        sh "git config --add remote.origin.fetch +refs/heads/trunk:refs/remotes/origin/trunk"
+                    sshagent(['Credential Name']) {
+                        sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
                         sh "git fetch --no-tags"
-                        List<String> sourceChanged = sh(returnStdout: true, script: "git diff --name-only origin/trunk..origin/${env.BRANCH_NAME}").split()
+                        List<String> sourceChanged = sh(returnStdout: true, script: "git diff --name-only origin/master..origin/${env.BRANCH_NAME}").split()
                         def isAccountChanged = false
                         def isCustomerChanged = false
                         def isDiscoveryChanged = false
