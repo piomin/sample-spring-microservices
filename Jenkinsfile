@@ -50,7 +50,7 @@ pipeline {
                 }
             }
         }
-        stage('Check') {
+        stage 'Check' {
             steps {
                 script {
                     if (isAccountChanged == true) {
