@@ -1,6 +1,12 @@
 #!/usr/bin/env groovy
 pipeline {
     agent any
+    environment {
+        def isAccountChanged = false
+        def isCustomerChanged = false
+        def isDiscoveryChanged = false
+        def isGatewayChanged = false
+    }
     stages {     
         stage('Check for CHANGELOG update') {
             when { expression { env.BRANCH_NAME != 'master' } }
@@ -10,10 +16,10 @@ pipeline {
                         sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
                         sh "git fetch --no-tags"
                         List<String> sourceChanged = sh(returnStdout: true, script: "git diff --name-only origin/master..origin/${env.BRANCH_NAME}").split()
-                        def isAccountChanged = false
+/*                        def isAccountChanged = false
                         def isCustomerChanged = false
                         def isDiscoveryChanged = false
-                        def isGatewayChanged = false
+                        def isGatewayChanged = false*/
                         for (int i = 0; i < sourceChanged.size(); i++) {
                             echo "** Here ***"
                             if (sourceChanged[i].contains("account")) {
@@ -54,7 +60,7 @@ pipeline {
             steps {
                 script {
                     echo "** stage check ***"
-                    if ($isAccountChanged == true) {
+                    if (isAccountChanged == true) {
                         echo "** Entities changed ***"
                     }
                 }
