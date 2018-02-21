@@ -50,9 +50,10 @@ pipeline {
                 }
             }
         }
-        stage 'Check' {
+        stage ('Check') {
             steps {
                 script {
+                    echo "** stage check ***"
                     if (isAccountChanged == true) {
                         echo "** Entities changed ***"
                     }
