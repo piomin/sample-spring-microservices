@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
     agent any
-    def isAccountChanged = false
     stages {     
         stage('Check for CHANGELOG update') {
             when { expression { env.BRANCH_NAME != 'master' } }
