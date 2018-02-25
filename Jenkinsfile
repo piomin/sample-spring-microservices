@@ -12,7 +12,7 @@ checkout scm
                     sshagent(['Credential Name']) {
                        // sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
                         //sh "git fetch --no-tags"
-                        List<String> sourceChanged = sh(returnStdout: true, script: "git diff --name-only origin/master..origin/${env.BRANCH_NAME}").split()
+                        List<String> sourceChanged = sh(returnStdout: true, script: "git diff --name-only HEAD^ origin/${env.BRANCH_NAME}").split()
                         for (int i = 0; i < sourceChanged.size(); i++) {
                             echo "** Here ***"
                             if (sourceChanged[i].contains("account")) {
