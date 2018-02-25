@@ -67,9 +67,10 @@ def micro() {
           if (isAccountChanged == true) {
 
             node{
+               ws("${env.JOB_NAME}") {
                 dir('account-service'){         
                micro()
-                     }
+                }}
             }
 
             }
@@ -80,6 +81,7 @@ def micro() {
           if (isCustomerChanged == true) {
 
             node{
+                        ws("${env.JOB_NAME}") {
                     dir('customer-service'){
  
                  micro()
@@ -87,7 +89,7 @@ def micro() {
                                             }
 
             }
-
+            }
             }
 
         }
