@@ -59,7 +59,7 @@ def micro() {
             }     
 }
        
-/* stage('Test') {
+ stage('Test') {
 
     parallel (
         "account": {
@@ -91,34 +91,7 @@ def micro() {
             }
 
         }
-        )*/
-  def tasks = [:]
-
-            tasks["TasK No.1"] = {
-              if (isAccountChanged == true) {
-
-            node{
-                dir('account-service'){         
-               micro()
-                     }
-            }
-
-            }
-            }
-            tasks["task No.2"] = {
-                if (isAccountChanged == true) {
-
-            node{
-                dir('account-service'){         
-               micro()
-                     }
-            }
-
-            }
-            }
-
-
- parallel tasks        
-         
+        )
+    }
     
 
