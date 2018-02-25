@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "account-service"
+echo " yess yess account-service"
