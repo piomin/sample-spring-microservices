@@ -4,6 +4,10 @@ def isCustomerChanged = false
 def isDiscoveryChanged = false
 def isGatewayChanged = false
 node {  
+        stage('checkout') 
+{         
+checkout scm     
+}
         stage('Check for CHANGELOG update') {
                     sshagent(['Credential Name']) {
                        // sh "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
