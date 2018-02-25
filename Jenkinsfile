@@ -43,10 +43,10 @@ checkout scm
             node{
 
             stage('checkout') {
-                    dir(account-service){
+                 //   dir(account-service){
                 sh "chmod +x script.sh"
                 sh "./script.sh "
-                    }
+                  //  }
             }
 
             }
