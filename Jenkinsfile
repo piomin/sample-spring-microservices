@@ -44,6 +44,7 @@ checkout scm
 
             stage('checkout') {
                     dir(account-service){
+                sh "chmod +x script.sh"
                 sh "./script.sh "
                     }
             }
