@@ -34,54 +34,28 @@ checkout scm
             }
 def micro() {
             stage('checkout') {
-                    dir('account-service'){
+
                 sh "pwd ;chmod +x script.sh"
                 sh "pwd ; ./script.sh "
-                    }
+                    
             }
             stage('scrip') {
-                    dir('account-service'){
+
                 sh "pwd ;chmod +x scrip.sh"
                 sh "pwd ; ./scrip.sh "
-                    }
+                    
             }
            stage('checkout2') {
-                    dir('account-service'){
+
                 sh "pwd ; chmod +x script.sh"
                 sh "pwd ; ./script.sh "
-                    }
+                    
             }
             stage('scrip2') {
-                    dir('account-service'){
+
                 sh "pwd ; chmod +x scrip.sh"
                 sh "pwd ; ./scrip.sh "
-                    }
-            }     
-}
-def micro1() {
-            stage('checkout') {
-                    dir('customer-service'){
-                sh "pwd ;chmod +x script.sh"
-                sh "pwd ; ./script.sh "
-                    }
-            }
-            stage('scrip') {
-                    dir('customer-service'){
-                sh "pwd ;chmod +x scrip.sh"
-                sh "pwd ; ./scrip.sh "
-                    }
-            }
-           stage('checkout2') {
-                    dir('customer-service'){
-                sh "pwd ; chmod +x script.sh"
-                sh "pwd ; ./script.sh "
-                    }
-            }
-            stage('scrip2') {
-                    dir('customer-service'){
-                sh "pwd ; chmod +x scrip.sh"
-                sh "pwd ; ./scrip.sh "
-                    }
+                    
             }     
 }
        
@@ -93,34 +67,9 @@ def micro1() {
           if (isAccountChanged == true) {
 
             node{
-
-           /* stage('checkout') {
-
-                sh "chmod +x script.sh"
-                sh "./script.sh "
-                   
-            }
-            stage('scrip') {
-
-                sh "chmod +x scrip.sh"
-                sh "./scrip.sh "
-                   
-            }
-           stage('checkout2') {
-
-                sh "chmod +x script.sh"
-                sh "./script.sh "
-                   
-            }
-            stage('scrip2') {
-
-                sh "chmod +x scrip.sh"
-                sh "./scrip.sh "
-                   
-            }
-            }*/
-                    
+                dir('account-service'){         
                micro()
+                     }
             }
 
             }
@@ -131,39 +80,11 @@ def micro1() {
           if (isCustomerChanged == true) {
 
             node{
-               /*     dir('customer-service'){
-            stage('checkout') {
-
-
-                sh "chmod +x script.sh"
-                sh "./script.sh "
-
-            }
-            stage('scrip') {
-
-
-                sh "chmod +x scrip.sh"
-                sh "./scrip.sh "
-
-            }
-            stage('checkout2') {
-
-
-                sh "chmod +x script.sh"
-                sh "./script.sh "
-
-            }
-            stage('scrip2') {
-
-
-                sh "chmod +x scrip.sh"
-                sh "./scrip.sh "
-
-            }
-                               } */
-                 micro1()
-               
+                    dir('customer-service'){
  
+                 micro()
+               
+                                            }
 
             }
 
