@@ -105,7 +105,7 @@ def micro() {
 
             node{
                     dir('customer-service'){
-            stage('checkout') {
+      /*      stage('checkout') {
 
 
                 sh "chmod +x script.sh"
@@ -132,7 +132,8 @@ def micro() {
                 sh "chmod +x scrip.sh"
                 sh "./scrip.sh "
 
-            }
+            }*/
+                 micro()
                
                     }
 
