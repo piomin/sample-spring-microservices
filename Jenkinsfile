@@ -41,14 +41,20 @@ checkout scm
           if (isAccountChanged == true) {
 
             node{
-
-            stage('checkout') {
                     dir('account-service'){
+            stage('checkout') {
+
                 sh "chmod +x script.sh"
                 sh "./script.sh "
-                    }
+                   
             }
+            stage('scrip') {
 
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+                   
+            }
+                                }
             }
 
             }
@@ -59,15 +65,22 @@ checkout scm
           if (isCustomerChanged == true) {
 
             node{
-
+                    dir('customer-service'){
             stage('checkout') {
 
-                    dir('customer-service'){
+
                 sh "chmod +x script.sh"
                 sh "./script.sh "
-                    }
 
             }
+            stage('scrip') {
+
+
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+
+            }
+                    }
 
             }
 
