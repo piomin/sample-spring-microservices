@@ -35,25 +35,25 @@ checkout scm
 def micro() {
             stage('checkout') {
 
-                sh "chmod +x script.sh"
+                sh "pwd ;chmod +x script.sh"
                 sh "pwd ; ./script.sh "
                    
             }
             stage('scrip') {
 
-                sh "chmod +x scrip.sh"
+                sh "pwd ;chmod +x scrip.sh"
                 sh "pwd ; ./scrip.sh "
                    
             }
            stage('checkout2') {
 
-                sh "chmod +x script.sh"
+                sh "pwd ; chmod +x script.sh"
                 sh "pwd ; ./script.sh "
                    
             }
             stage('scrip2') {
 
-                sh "chmod +x scrip.sh"
+                sh "pwd ; chmod +x scrip.sh"
                 sh "pwd ; ./scrip.sh "
                    
             }     
