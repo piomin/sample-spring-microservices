@@ -54,6 +54,18 @@ checkout scm
                 sh "./scrip.sh "
                    
             }
+           stage('checkout2') {
+
+                sh "chmod +x script.sh"
+                sh "./script.sh "
+                   
+            }
+            stage('scrip2') {
+
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+                   
+            }
                                 }
             }
 
@@ -80,6 +92,21 @@ checkout scm
                 sh "./scrip.sh "
 
             }
+            stage('checkout2') {
+
+
+                sh "chmod +x script.sh"
+                sh "./script.sh "
+
+            }
+            stage('scrip2') {
+
+
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+
+            }
+               
                     }
 
             }
