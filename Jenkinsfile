@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-def isAccountChanged = false
+def isAccountChanged = true
 def isCustomerChanged = false
 def isDiscoveryChanged = false
 def isGatewayChanged = false
@@ -43,9 +43,9 @@ checkout scm
             node{
 
             stage('checkout') {
-
-                echo "** account ***"
-
+                    dir(account-service){
+                sh "./script.sh "
+                    }
             }
 
             }
