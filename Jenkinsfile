@@ -66,7 +66,7 @@ def micro() {
 
           if (isAccountChanged == true) {
 
-            node{
+            stages{
 
                 dir('account-service'){         
                micro()
@@ -80,7 +80,7 @@ def micro() {
 
           if (isCustomerChanged == true) {
 
-            node{
+            stages{
 
                     dir('customer-service'){
  
