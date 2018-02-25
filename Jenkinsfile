@@ -32,16 +32,7 @@ checkout scm
                     }
                 }
             }
-       
- stage('Test') {
-
-    parallel (
-        "account": {
-
-          if (isAccountChanged == true) {
-
-            node{
-                    dir('account-service'){
+def micro() {
             stage('checkout') {
 
                 sh "chmod +x script.sh"
@@ -65,7 +56,43 @@ checkout scm
                 sh "chmod +x scrip.sh"
                 sh "./scrip.sh "
                    
+            }     
+}
+       
+ stage('Test') {
+
+    parallel (
+        "account": {
+
+          if (isAccountChanged == true) {
+
+            node{
+                    dir('account-service'){
+           /* stage('checkout') {
+
+                sh "chmod +x script.sh"
+                sh "./script.sh "
+                   
             }
+            stage('scrip') {
+
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+                   
+            }
+           stage('checkout2') {
+
+                sh "chmod +x script.sh"
+                sh "./script.sh "
+                   
+            }
+            stage('scrip2') {
+
+                sh "chmod +x scrip.sh"
+                sh "./scrip.sh "
+                   
+            }*/
+               micro()
                                 }
             }
 
