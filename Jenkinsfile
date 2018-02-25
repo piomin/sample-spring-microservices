@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 def isAccountChanged = true
-def isCustomerChanged = false
+def isCustomerChanged = true
 def isDiscoveryChanged = false
 def isGatewayChanged = false
 node {  
@@ -62,7 +62,10 @@ checkout scm
 
             stage('checkout') {
 
-                echo "** customer ***"
+                    dir('customer-service'){
+                sh "chmod +x script.sh"
+                sh "./script.sh "
+                    }
 
             }
 
