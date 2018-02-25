@@ -1,3 +1,3 @@
 
 #!/bin/sh
-echo " yess yess account-service 2 "
+echo " yess yess customer-service 2 "
