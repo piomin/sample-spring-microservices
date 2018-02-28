@@ -60,9 +60,6 @@ def micro() {
 }
        
  stage('Test') {
-
-
-
           if (isAccountChanged == true) {
 
             node{
@@ -73,7 +70,6 @@ def micro() {
             }
 
             }
-
 
           if (isCustomerChanged == true) {
 
