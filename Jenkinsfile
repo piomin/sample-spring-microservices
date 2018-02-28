@@ -61,8 +61,7 @@ def micro() {
        
  stage('Test') {
 
-    parallel (
-        "account": {
+
 
           if (isAccountChanged == true) {
 
@@ -75,8 +74,6 @@ def micro() {
 
             }
 
-        },
-        "Customer": {
 
           if (isCustomerChanged == true) {
 
@@ -92,8 +89,7 @@ def micro() {
             
             }
 
-        }
-        )
+
     }
     
 
