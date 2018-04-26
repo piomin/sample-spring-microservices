@@ -86,5 +86,26 @@ def micro() {
             }
 
     }
+
+    stage('deploy staging') {
+
+            
+                def rancherCli = docker.image('rancher-server:5000/rburgst/rancher-cli-configured')
+                rancherCli.pull()
+
+                rancherCli.inside {
+                    try {
+                        // remove the old rancher stack in case it exists, if not ignore all errors
+                        sh 'cd docker && rancher rm demo-webshop-staging'
+                    } catch (any) {}
+                }
+                rancherCli.inside {
+                    // now deploy the new stack
+                    sh 'cd docker && rancher up -s demo-webshop-staging -d'
+                }
+            
+        }
+    
+}
     
 
