@@ -3,7 +3,6 @@ services:
   Goauth:
     scale: 2 
     start_on_create: true
-
   auth-lb:
     scale: 1
     start_on_create: true
@@ -14,7 +13,6 @@ services:
         service: Goauth
         source_port: 9000
         target_port: 9000
-
   db:
     scale: 1
     start_on_create: true
