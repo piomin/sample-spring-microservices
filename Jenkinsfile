@@ -96,7 +96,6 @@ try {
                             sleep(20)
                     } catch (any) {}
                 
-
                     // now deploy the new stack
                     sh 'cd stack-master && rancher-compose --url http://192.168.56.101:8080/v1/projects/1a5 --access-key B9D9EDC9AF35290AF178 --secret-key DRYbZZ96uM4mNTWWMooqrQVPXDcLm95sEGjMqBNd up -d'
 }
