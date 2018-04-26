@@ -99,7 +99,7 @@ node {
              //   }
        //         rancherCli.inside {
                     // now deploy the new stack
-                    sh 'rancher-compose --url http://192.168.56.101:8080 --access-key 126F12D08951CE0554F2 --secret-key Ps1tpHbUmJ93LZ2avGQgrXGUJLgqqn86CMd3V56h up'
+                    sh 'rancher-compose --url http://192.168.56.101:8080/v1/projects/1a5 --access-key 126F12D08951CE0554F2 --secret-key Ps1tpHbUmJ93LZ2avGQgrXGUJLgqqn86CMd3V56h up'
          //       }
             
     }
