@@ -22,7 +22,7 @@ Our sample microservices-based system consists of the following modules:
 - **config-service** - a module that uses Spring Cloud Config Server for running configuration server in the `native` mode. The configuration files are placed on the classpath.
 - **discovery-service** - a module that depending on the example it uses Spring Cloud Netflix Eureka as an embedded discovery server.
 - **account-service** - a module containing the first of our sample microservices that allows to perform CRUD operation on in-memory repository of accounts
-- **customer-service** - a module containing the second of our sample microservices that allows to perform CRUD operation on in-memory repository of customers. It communicates with customer-service. 
+- **customer-service** - a module containing the second of our sample microservices that allows to perform CRUD operation on in-memory repository of customers. It communicates with account-service. 
 - **zipkin-service** - a module that runs embedded Zipkin instance.
 
 The following picture illustrates the architecture described above.
