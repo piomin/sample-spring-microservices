@@ -1,2 +1,2 @@
-server:  
+server:
   port: ${PORT:9411}

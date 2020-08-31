@@ -1,6 +1,6 @@
 info:
   component: Edge Server
-  
+
 endpoints:
   restart:
     enabled: true
@@ -12,12 +12,12 @@ endpoints:
 zuul:
   prefix: /api
   routes:
-    account: 
+    account:
       path: /account/**
       serviceId: account-service
-    customer: 
+    customer:
       path: /customer/**
-      serviceId: customer-service          
+      serviceId: customer-service
 
 ribbon:
   eureka:
@@ -28,7 +28,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
     registerWithEureka: false
-      
+
 server:
   port: 8765
 

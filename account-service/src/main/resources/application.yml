@@ -1,7 +1,7 @@
-server:  
+server:
   port: ${PORT:2222}
 
-spring:  
+spring:
   application:
     name: account-service
   logging:
@@ -11,14 +11,14 @@ spring:
       org.springframework: WARN
       org.hibernate: WARN
 
-eureka:  
+eureka:
   client:
     serviceUrl:
-      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+      defaultZone: http://localhost:8761}/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
-      
+
 ribbon:
   eureka:
     enabled: true
