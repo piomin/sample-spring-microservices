@@ -1,9 +1,7 @@
 package pl.piomin.microservices.account.api;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.piomin.microservices.account.exceptions.AccountNotFoundException;
 import pl.piomin.microservices.account.model.Account;
 
@@ -29,16 +27,16 @@ public class Api {
         accounts.add(new Account(7, 2, "777777"));
     }
 
-    @RequestMapping("/{number}")
+    @RequestMapping(method = RequestMethod.GET, value = "/number/{number}")
     public Account findByNumber(@PathVariable("number") String number) throws AccountNotFoundException {
         log.info(String.format("Account.findByNumber(%s)", number));
         return accounts.stream()
                 .filter(it -> it.getNumber().equals(number))
                 .findFirst()
-                .orElseThrow(() -> new AccountNotFoundException(number));
+                .orElseThrow(() -> new AccountNotFoundException("number : " + number));
     }
 
-    @RequestMapping("/customer/{customer}")
+    @RequestMapping(method = RequestMethod.GET, value = "/customer/{customer}")
     public List<Account> findByCustomer(@PathVariable("customer") Integer customerId) {
         log.info(String.format("Account.findByCustomer(%s)", customerId));
         return accounts.stream()
@@ -46,10 +44,43 @@ public class Api {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping("")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     public List<Account> findAll() {
         log.info("Account.findAll()");
         return accounts;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public Account findById(@PathVariable Integer id) throws AccountNotFoundException {
+        log.info("Account.findAll()");
+        return accounts.stream()
+                .filter(it -> it.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new AccountNotFoundException("id : " + id));
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "")
+    public Account createNewAccount(@RequestBody Account account) {
+        log.info("Account.createNewAccount()");
+        if (account.getId() != null) {
+            return null;
+        }
+        int size = accounts.size();
+        account.setId(size + 1);
+        accounts.add(account);
+        return account;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public boolean deleteAccount(@PathVariable Integer id) {
+        log.info("Account.deleteAccount()");
+        try {
+            Account byId = findById(id);
+            accounts.remove(byId);
+        } catch (AccountNotFoundException e) {
+            return false;
+        }
+        return true;
     }
 
 }
