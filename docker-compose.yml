@@ -1,0 +1,58 @@
+version: '3.5'
+services:
+  discovery:
+    image: piomin/discovery-service
+    container_name: discovery-service
+    build:
+      context: ./discovery-service
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+
+  gateway:
+    image: piomin/gateway-service
+    container_name: service-gateway
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "8765:8765"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka
+    links:
+      - discovery
+
+  zipkin-service:
+    image: piomin/zipkin-service
+    container_name: zipkin-service
+    build:
+      context: ./zipkin-service
+      dockerfile: Dockerfile
+    ports:
+      - "9411:9411"
+
+  account-service:
+    image: piomin/account-service
+    container_name: account-service
+    build:
+      context: ./account-service
+      dockerfile: Dockerfile
+    ports:
+      - "2222:2222"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka
+    links:
+      - discovery
+
+  customer-service:
+    image: piomin/customer-service
+    container_name: customer-service
+    build:
+      context: ./customer-service
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3333"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka
+    links:
+      - discovery
