@@ -17,4 +17,10 @@ public class Customer {
     private CustomerType type;
     private List<Account> accounts;
 
+    public Customer(int id, String pesel, String name, CustomerType type) {
+        this.id = id;
+        this.pesel = pesel;
+        this.name = name;
+        this.type = type;
+    }
 }
