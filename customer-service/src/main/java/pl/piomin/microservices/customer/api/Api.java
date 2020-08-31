@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,13 @@ import pl.piomin.microservices.customer.model.Customer;
 import pl.piomin.microservices.customer.model.CustomerType;
 
 @RestController
+@RequestMapping("/customers")
+@Slf4j
 public class Api {
 	
 	@Autowired
 	private AccountClient accountClient;
-	
-	protected Logger logger = Logger.getLogger(Api.class.getName());
-	
+
 	private List<Customer> customers;
 	
 	public Api() {
@@ -32,21 +33,21 @@ public class Api {
 		customers.add(new Customer(4, "12348", "Karolina Lewandowska", CustomerType.INDIVIDUAL));
 	}
 	
-	@RequestMapping("/customers/pesel/{pesel}")
+	@RequestMapping("/pesel/{pesel}")
 	public Customer findByPesel(@PathVariable("pesel") String pesel) {
-		logger.info(String.format("Customer.findByPesel(%s)", pesel));
+		log.info(String.format("Customer.findByPesel(%s)", pesel));
 		return customers.stream().filter(it -> it.getPesel().equals(pesel)).findFirst().get();	
 	}
 	
-	@RequestMapping("/customers")
+	@RequestMapping("")
 	public List<Customer> findAll() {
-		logger.info("Customer.findAll()");
+		log.info("Customer.findAll()");
 		return customers;
 	}
 	
-	@RequestMapping("/customers/{id}")
+	@RequestMapping("/{id}")
 	public Customer findById(@PathVariable("id") Integer id) {
-		logger.info(String.format("Customer.findById(%s)", id));
+		log.info(String.format("Customer.findById(%s)", id));
 		Customer customer = customers.stream().filter(it -> it.getId().intValue()==id.intValue()).findFirst().get();
 		List<Account> accounts =  accountClient.getAccounts(id);
 		customer.setAccounts(accounts);
