@@ -15,6 +15,19 @@ Currently you may find here some examples of microservices implementation using 
 
 In the most cases you need to have Maven, JDK8+ and Docker for running third-party software like Zipkin or Logstash. In the fifth example with Kubernetes you will have to run **Minikube** on your local machine. The best way to run the sample applications is with IDEs like IntelliJ IDEA or Eclipse.  
 
+### How to Run
+
+docker-compose up
+
+If you want to change anything on any service(s), you need to build the service(s) you changed and then :
+
+docker-compose build
+docker-compose up
+
+### How to Run
+
+docker-compose down
+
 ## Architecture
 
 Our sample microservices-based system consists of the following modules:
