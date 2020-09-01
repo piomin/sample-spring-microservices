@@ -1,11 +1,11 @@
-server:  
+server:
   port: ${PORT:8761}
-    
-eureka:  
+
+eureka:
   instance:
     hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
   server:
-    enableSelfPreservation: false  
+    enableSelfPreservation: false

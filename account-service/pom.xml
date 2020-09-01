@@ -34,7 +34,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>pl.piomin.microservices.account.Application</mainClass>
+					<mainClass>pl.piomin.microservices.account.AccountServiceApplication</mainClass>
 					<addResources>true</addResources>
 				</configuration>
 				<executions>
