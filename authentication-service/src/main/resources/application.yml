@@ -1,6 +1,9 @@
 spring:
   application:
     name: authentication-service
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .ftl
 
 # Define the port where the UAA server would be running
 server:
