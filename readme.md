@@ -2,6 +2,8 @@
 
 In this project I'm demonstrating you the most interesting features of [Spring Cloud Project](https://spring.io/projects/spring-cloud) for building microservice-based architecture. Most of examples are based on **Spring Boot 1.5**.
 
+> :warning: This repository contains examples of Spring Boot 1.5 and won't be updated. **If you are looking for the repository with the latest versions of Spring Boot/Spring Cloud please refer to that: https://github.com/piomin/sample-spring-microservices-new**. It is automatically updated to the latest versions of all frameworks and libraries.
+
 ## Getting Started 
 Currently you may find here some examples of microservices implementation using different projects from Spring Cloud. All the examples are divided into the branches and described in a separated articles on my blog. Here's a full list of available examples:
 1. Introduction to Spring Cloud components like discovery with **Eureka**, load balancing with **Ribbon**, REST client **Feign**, API gataway with **Zuul**. The example is available in the branch [master](https://github.com/piomin/sample-spring-microservices/tree/master). A detailed description can be found here: [Part 1: Creating microservice using Spring Cloud, Eureka and Zuul](https://piotrminkowski.com/2017/02/05/part-1-creating-microservice-using-spring-cloud-eureka-and-zuul/)
