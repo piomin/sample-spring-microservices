@@ -1,0 +1,18 @@
+version: '2'
+services:
+  Goauth:
+    scale: 2 
+    start_on_create: true
+  auth-lb:
+    scale: 1
+    start_on_create: true
+    lb_config:
+      port_rules:
+      - priority: 1
+        protocol: http
+        service: Goauth
+        source_port: 9000
+        target_port: 9000
+  db:
+    scale: 1
+    start_on_create: true

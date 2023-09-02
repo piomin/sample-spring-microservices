@@ -1,0 +1,39 @@
+version: 2
+services:
+  Goauth:
+    image: usman/go-auth:1.8
+    command:
+      - "-l"
+      - "debug"
+      - "run"
+      - "--db-host"
+      - "db"
+      - "-p"
+      - "9000"
+    labels:
+
+      io.rancher.scheduler.affinity:host_label: branch=trunk
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.hostname_override: container_name
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: messenger
+      MYSQL_USER: messenger
+      MYSQL_PASSWORD: messenger
+    labels:
+      io.rancher.scheduler.affinity:host_label: branch=trunk
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.hostname_override: container_name
+
+  auth-lb:
+    image: rancher/lb-service-haproxy:v0.6.2
+    ports:
+    - 9000:9000/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
+      io.rancher.scheduler.affinity:host_label: branch=trunk
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.hostname_override: container_name
